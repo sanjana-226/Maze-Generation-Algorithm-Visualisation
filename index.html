@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Maze Generator</title>
+    <title>Stepwise Visualization of Execution an Algorithm : Maze Generation</title>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
   </head>
-  <body style="background-color: rgb(151, 151, 223)">
-    <h1>Maze Generator</h1>
-    <div style="flex: auto; display: flex; flex-direction: row">
+  <body style="background-color: rgb(223, 189, 146)">
+
+    <hr style="height:2px;border-width:0;color:gray;background-color:rgb(80, 50, 21)">
+        <h2 style="text-align: center; color: rgb(80, 50, 21);"> MMC Project || Sanjana Padavala || 2020A7PS1207P || Topic 16</h2>
+    <hr style="height:2px;border-width:0;color:gray;background-color:rgb(80, 50, 21)">
+
+    <h1 style="font-size:3vw">Stepwise Visualization of Execution an Algorithm : <br>Maze Generation</h1> 
+        <div style="flex: auto; display: flex; flex-direction: row">
       <div>
         <canvas
           id="mazeCanvas"
@@ -18,7 +23,7 @@
         <button id="generateButton" onclick="generateMaze()">Restart</button>
       </div>
       <div>
-        <h1>Recurisve Backtracking Maze Generation Algorithm<br /></h1></h1>
+        <h1 >Recursive Backtracking Maze Generation Algorithm<br /></h1></h1>
         <h2>
         <ol>
             <li id="1" >        Start with a grid of cells, all unvisited. <br />
@@ -37,11 +42,13 @@
             </ul>
             <li id="7">        When all cells have been visited, the maze is complete.<br />
             </li>
+
+            <br><br><h5 style="text-align: center; ">** Reload page to restart the algorithm **</h5> 
         </ol>
     </h2>
       </div>
     </div>
 
-    <script src="maze1.js"></script>
+    <script src="maze.js"></script>
   </body>
 </html>

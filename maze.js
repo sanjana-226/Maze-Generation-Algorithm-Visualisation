@@ -94,13 +94,13 @@ async function generateMaze() {
       removeWall(grid, currentCell, { row: nextRow, col: nextCol });
       stack.push({ row: nextRow, col: nextCol });
       drawMaze(grid);
-      await new Promise((r) => setTimeout(r, 1000));
+      await new Promise((r) => setTimeout(r, 300));
     } else {
       // highlightStep(4);
       stack.pop();
     }
   }
-  highlightStep(6);
+  // highlightStep(6);
 }
 
 let steps = ["1", "2", "3", "4", "5", "6", "7"];
