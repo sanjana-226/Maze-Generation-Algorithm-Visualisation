@@ -1,41 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Recursive Backtracking Maze Generation</title>
-  <style>
-    /* Add some styles to the canvas element */
-    canvas {
-      border: 1px solid #ccc;
-    }
-  </style>
+	<title>Recursive Backtracking Maze Generator</title>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"> </script> 
 </head>
-<body>
-  <h1>Recursive Backtracking Maze Generation</h1>
-  <canvas id="maze"></canvas>
-  <button id="generate-btn">Generate Maze</button>
-
-  <script src="maze.js"></script>
-  <script>
-    const canvas = document.getElementById('mazeCanvas');
-    const ctx = canvas.getContext('2d');
-    const rows = 20;
-    const cols = 20;
-    const cellSize = 20;
-    const grid = new Array(rows).fill(null).map(() => new Array(cols).fill(1));
-
-    // Generate the maze when the page is loaded
-    generateMaze();
-
-    // Add an event listener to the "Generate Maze" button
-    const generateBtn = document.getElementById('generate-btn');
-    generateBtn.addEventListener('click', () => {
-      // Clear the canvas
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      // Generate a new maze
-      generateMaze();
-    });
-  </script>
+<body style="background-color: red;">
+    <h1>Recursive Backtracking Maze Generator</h1>
+	<canvas id="mazeCanvas" width="600" height="600" style="background-color: white;"></canvas>
+	<button id="generateButton" onclick="generateMaze()">Restart</button>
+    
+	<script src="maze1.js"></script>
 </body>
 </html>
 
