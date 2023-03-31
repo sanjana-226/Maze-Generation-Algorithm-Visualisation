@@ -1,15 +1,47 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Recursive Backtracking Maze Generator</title>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"> </script> 
-</head>
-<body style="background-color: red;">
-    <h1>Recursive Backtracking Maze Generator</h1>
-	<canvas id="mazeCanvas" width="600" height="600" style="background-color: white;"></canvas>
-	<button id="generateButton" onclick="generateMaze()">Restart</button>
-    
-	<script src="maze1.js"></script>
-</body>
-</html>
+  <head>
+    <title>Maze Generator</title>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+  </head>
+  <body style="background-color: rgb(151, 151, 223)">
+    <h1>Maze Generator</h1>
+    <div style="flex: auto; display: flex; flex-direction: row">
+      <div>
+        <canvas
+          id="mazeCanvas"
+          width="600"
+          height="600"
+          style="background-color: white"
+        ></canvas>
+        <br>
+        <button id="generateButton" onclick="generateMaze()">Restart</button>
+      </div>
+      <div>
+        <h1>Recurisve Backtracking Maze Generation Algorithm<br /></h1></h1>
+        <h2>
+        <ol>
+            <li id="1" >        Start with a grid of cells, all unvisited. <br />
+            </li>
+            <li id="2">        Choose a random starting cell and mark it as visited. <br />
+            </li>
+            <li id="3">        While there are unvisited cells:<br />
+            </li>
+            <ul>
+                <li id="4">        a. Choose a random neighbor that hasn't been visited yet.<br />
+                </li>
+                <li id="5">        b. If all neighbors have been visited, backtrack to the previous cell.<br />
+                </li>
+                <li id="6">        c. Mark the chosen cell as visited and add it to the maze path.<br />
+                </li>
+            </ul>
+            <li id="7">        When all cells have been visited, the maze is complete.<br />
+            </li>
+        </ol>
+    </h2>
+      </div>
+    </div>
 
+    <script src="maze1.js"></script>
+  </body>
+</html>

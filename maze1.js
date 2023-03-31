@@ -1,7 +1,7 @@
 const canvas = document.getElementById("mazeCanvas");
 const ctx = canvas.getContext("2d");
 
-const cellSize = 10;
+const cellSize = 30;
 const rows = Math.floor(canvas.height / cellSize);
 const cols = Math.floor(canvas.width / cellSize);
 
@@ -62,56 +62,30 @@ function drawMaze(grid) {
   }
 }
 
-// async function generateMaze() {
-//     ctx.fillStyle = "black";
-//     ctx.fillRect(0, 0, width, height);
+let empty_grid = new Array(rows)
+  .fill(null)
+  .map(() => new Array(cols).fill(false));
 
-//     let grid = createGrid();
-//     let currentCell = grid[0][0];
-//     currentCell.visited = true;
-
-//     while (true) {
-//       let unvisitedNeighbors = getUnvisitedNeighbors(currentCell, grid);
-
-//       if (unvisitedNeighbors.length > 0) {
-//         let randomNeighbor =
-//           unvisitedNeighbors[Math.floor(Math.random() * unvisitedNeighbors.length)];
-//         stack.push(currentCell);
-//         removeWalls(currentCell, randomNeighbor);
-//         currentCell = randomNeighbor;
-//         currentCell.visited = true;
-//       } else if (stack.length > 0) {
-//         currentCell = stack.pop();
-//       }
-
-//       drawMaze(grid);
-
-//       if (stack.length === 0) {
-//         break;
-//       }
-
-//       // Wait for 100 milliseconds before moving to the next step
-//       await new Promise((resolve) => setTimeout(resolve, 100));
-//     }
-//   }
-let empty_grid = new Array(rows).fill(null).map(() => new Array(cols).fill(false));
-  
 function reset() {
   drawMaze(empty_grid);
 }
 
 async function generateMaze() {
+  // highlightStep(0);
   reset();
-  grid = new Array(rows).fill(null).map(() => new Array(cols).fill(true));
   
+  grid = new Array(rows).fill(null).map(() => new Array(cols).fill(true));
+  // highlightStep(0);
   let stack = [{ row: 1, col: 1 }];
+  // highlightStep(1);
   while (stack.length > 0) {
     const currentCell = stack[stack.length - 1];
     grid[currentCell.row][currentCell.col] = false;
-
+    // highlightStep(2);
     const neighbors = getNeighbors(grid, currentCell.row, currentCell.col);
 
     if (neighbors.length > 0) {
+      // highlightStep(3);
       const {
         row: nextRow,
         col: nextCol,
@@ -120,16 +94,21 @@ async function generateMaze() {
       removeWall(grid, currentCell, { row: nextRow, col: nextCol });
       stack.push({ row: nextRow, col: nextCol });
       drawMaze(grid);
-      await new Promise(r => setTimeout(r, 10));
-      } else {
+      await new Promise((r) => setTimeout(r, 1000));
+    } else {
+      // highlightStep(4);
       stack.pop();
     }
-  }  
+  }
+  highlightStep(6);
+}
+
+let steps = ["1", "2", "3", "4", "5", "6", "7"];
+
+function highlightStep(stepId){
+  steps.forEach((stepId) => document.getElementById(stepId).style.color = "black");
+  document.getElementById(steps[stepId]).style.color = "blue";
 }
 
 generateMaze();
-
-// async function generateMazeStepByStep() {
-//     await generateMaze();
-//     await generateMaze();
-//   }
+// highlightStep(2);
